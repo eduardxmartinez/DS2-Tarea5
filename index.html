@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 5</title>
+</head>
+<body>
+    <h1>Tarea 5</h1>
+    
+    <h3>Código:</h3>
+    
+    <p>package ds2.tarea5;</p>
+    
+    <p>import java.util.Scanner;</p>
+    
+    <p>public class DS2Tarea5 {</p>
+    
+    <p>&nbsp; &nbsp; public static void main(String[] args) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; int z[][] = new int[3][3];<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; int jugador = 0;</p>
+    
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; //INICIAR EN CERO TODAS LAS CASILLAS<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; inicializar(z);</p>
+    
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; //DESPLEGAR ARREGLO<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; despliega(z);</p>
+    
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; //TIRA JUGADOR<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; for (int i = 0; i &lt; 9; i++) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //TIRA JUGADOR 1<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (i % 2 == 0) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jugador1(z);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jugador = 1;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //TIRA JUGADOR 2<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (i % 2 == 1) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jugador2(z);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jugador = 2;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; despliega(z);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (verifica(z, jugador) == true) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (i == 8) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Empate&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; public static void inicializar(int w[][]) {</p>
+    
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; for (int i = 0; i &lt; 3; i++) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for (int j = 0; j &lt; 3; j++) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; w[i][j] = 0;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; public static void despliega(int w[][]) {</p>
+    
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; for (int j = 0; j &lt; 3; j++) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for (int k = 0; k &lt; 3; k++) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(w[j][k]);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(&quot; &quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;---------------&quot;);<br />
+        &nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; public static boolean verifica(int w[][], int i) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; if (((w[0][0] == i) &amp;&amp; (w[0][1] == i) &amp;&amp; (w[0][2] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[1][0] == i) &amp;&amp; (w[1][1] == i) &amp;&amp;
+        (w[1][2] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[2][0] == i) &amp;&amp; (w[2][1] == i) &amp;&amp;
+        (w[2][2] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[0][0] == i) &amp;&amp; (w[1][0] == i) &amp;&amp;
+        (w[2][0] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[0][1] == i) &amp;&amp; (w[1][1] == i) &amp;&amp;
+        (w[2][1] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[0][2] == i) &amp;&amp; (w[1][2] == i) &amp;&amp;
+        (w[2][2] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[0][0] == i) &amp;&amp; (w[1][1] == i) &amp;&amp;
+        (w[2][2] == i))<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || ((w[0][2] == i) &amp;&amp; (w[1][1] == i) &amp;&amp;
+        (w[2][0] == i))) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Gana Jugador &quot; + i);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; return false;<br />
+        &nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; public static void jugador1(int w[][]) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; Scanner sc = new Scanner(System.in);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; int x, y;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; do {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Jugador 1, Ingrese una
+        posición&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(&quot;x: &quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = sc.nextInt();<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(&quot;y: &quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y = sc.nextInt();<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (w[x][y] != 0 || x &gt; 2 || y &gt; 2 || x &lt; 0 || y &lt; 0) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Posición
+        inválida&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; } while (w[x][y] != 0);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; w[x][y] = 1;<br />
+        &nbsp; &nbsp; }</p>
+    
+    <p>&nbsp; &nbsp; public static void jugador2(int w[][]) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; Scanner sc = new Scanner(System.in);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; int x, y;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; do {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Jugador 2, Ingrese una
+        posición&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(&quot;x: &quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = sc.nextInt();<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(&quot;y: &quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; y = sc.nextInt();<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (w[x][y] != 0) {<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println(&quot;Posición
+        inválida&quot;);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; } while (w[x][y] != 0);<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; w[x][y] = 2;<br />
+        &nbsp; &nbsp; }</p>
+    
+    <p>}<br />
+        &nbsp;</p>
+    <h3>Resultados:</h3>
+    <img src="img1.png" height="700px" width="400px">
+    <img src="img2.png" height="700px" width="400px">
+    <img src="img3.png" height="700px" width="400px">
+
+
+</body>
+</html>
